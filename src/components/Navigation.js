@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import cookie from "cookie";
-// import MenuIcon from "@mui/icons-material/Menu";
 
-const Navigation = () => {
+const Navigation = (props) => {
+
     const navigate = useNavigate();
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-    const [isLoggedIn, setIsLoggedIn] = useState(cookie.parse(document.cookie).loggedIn);
+    useEffect(() => {
+        const parsedCookie = cookie.parse(document.cookie);
+        setIsLoggedIn(parsedCookie.loggedIn === "true");
+    }, []);
 
     function handleLogout() {
-        document.cookie = cookie.serialize("loggedIn", false, { maxAge: 0})
-        console.log("Logout was pressed, current value is:", isLoggedIn)
-        navigate("/login")
-      }
+        document.cookie = cookie.serialize("loggedIn", false, { maxAge: 0 });
+        console.log("Logout was pressed, current value is:", isLoggedIn);
+        navigate("/login");
+    }
 
     return (
         <nav className="nav-bar">
@@ -37,6 +41,11 @@ const Navigation = () => {
                     </ul>
                 </Toolbar>
             </AppBar>
+            <div className="current-user-bar">
+                {isLoggedIn ? (
+                    <h4 className="current-user-text">Logged in as: {props.user.username} </h4>
+                ) : null}
+            </div>
         </nav>
     )
 }

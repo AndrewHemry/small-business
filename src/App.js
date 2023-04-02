@@ -2,12 +2,12 @@ import './App.css';
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 
-import Navigation from './components/Navigation';
+// import Navigation from './components/Navigation';
+import Navigation from "./containers/Navigation"
 import Router from "./Router"
 
 import { Provider } from "react-redux";
 import store from "./redux/store"
-// Add import to store for redux
 
 function App() {
   return (

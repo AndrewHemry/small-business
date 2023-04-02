@@ -3,7 +3,7 @@ export default {
         username: 'test-user-1',
         email: 'test-user@example.com'
     },
-
+    
     listings: [
         {
             "id": 1,

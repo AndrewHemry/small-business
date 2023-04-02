@@ -57,6 +57,17 @@
   text-decoration: none;
 }
 
+.current-user-bar {
+  width: 100%;
+  height: 25px;
+  /* background-color: lightgray; */
+}
+
+.current-user-text {
+  background-color: lightgray;
+  margin: 0;
+}
+
 
 /* HYPERLINK STYLING */
 .nav-list-link {
