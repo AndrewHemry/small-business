@@ -36,3 +36,48 @@
     transform: rotate(360deg);
   }
 }
+
+/* NAV BAR */
+.toolbar-nav {
+  background-color: forestgreen;
+}
+
+.nav-title {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-list {
+  list-style: none;
+}
+
+.nav-list-item {
+  display: inline;
+  margin: 10px;
+  text-decoration: none;
+}
+
+
+/* HYPERLINK STYLING */
+.nav-list-link {
+  color: white;
+  text-decoration: none; /* no underline */
+}
+
+
+/* LIST BODY */
+.list-body {
+  margin: 50px;
+}
+
+.business-link {
+  color: black;
+}
+
+
+/* DETAILS STYLING */
+.business-details {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
