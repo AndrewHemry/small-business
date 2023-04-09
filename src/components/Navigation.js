@@ -30,6 +30,11 @@ const Navigation = (props) => {
                         <li className="nav-list-item">
                             <Link className="nav-list-link" to="/">Listings</Link>
                         </li>
+                        <li className="nav-list-item">
+                            {isLoggedIn ? (
+                                <Link className="nav-list-link" to="/add">Add</Link>
+                            ): null }
+                        </li>
                         {/* ACTION ITEM - Iron out the logout and login features */}
                         <li className="nav-list-item">
                             {isLoggedIn ? (

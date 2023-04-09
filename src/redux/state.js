@@ -4,7 +4,7 @@ export default {
         email: 'test-user@example.com'
     },
     
-    listings: [
+    businesses: [
         {
             "id": 1,
             "Name": "Home Slice Pizza",

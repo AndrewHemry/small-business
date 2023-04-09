@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router";
 import cookie from "cookie";
+import AddBusiness from "./containers/AddBusiness";
 import Login from "./components/Login"
-import Listings from "./components/Listings"
+import Businesses from "./containers/Businesses";
 import Business from "./components/Details";
 
 const checkAuth = () => {
@@ -20,12 +21,11 @@ const ProtectedRoute = (props) => {
 const Router = () => {
     return (
         <Routes>
-            {/* ACTION ITEM - Listings is unprotected */}
-            <Route path="/" element={<Listings/>}/>
-            {/* <Route path="/" element={<ProtectedRoute component={Listings} />} /> */}
+            <Route path="/" element={<Businesses/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/business/:id" element={<Business/>} />
             {/* Add Additional Routes */}
+            <Route path="/add" element={<ProtectedRoute component={AddBusiness} />} />
         </Routes>
     )
 }

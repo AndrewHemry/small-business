@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import the listings from the redux state
-import listings from "../listings.json"
+import businesses from "../listings.json"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -11,7 +11,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import cookie from "cookie";
 
-const Listings = (props) => {
+const Businesses = (props) => {
     // Potentially add a console log here for the props to ensure they're being passed from redux
 
     const cookies = cookie.parse(document.cookie);
@@ -39,21 +39,21 @@ const Listings = (props) => {
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {listings.map((listing, idx) => (
+                    {businesses.map((business, idx) => (
                         <TableRow
                         key={idx}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
-                                <Link className="business-link" to={`/business/${listing.id}`}>{listing.Name}</Link>
+                                <Link className="business-link" to={`/business/${business.id}`}>{business.Name}</Link>
                             </TableCell>
-                            <TableCell align="left">{listing.Description}</TableCell>
-                            <TableCell align="left">{listing.Open_Time}</TableCell>
-                            <TableCell align="left">{listing.Close_Time}</TableCell>
-                            <TableCell align="left">{listing.Address}</TableCell>
+                            <TableCell align="left">{business.Description}</TableCell>
+                            <TableCell align="left">{business.Open_Time}</TableCell>
+                            <TableCell align="left">{business.Close_Time}</TableCell>
+                            <TableCell align="left">{business.Address}</TableCell>
                             {isLoggedIn && (
                             <TableCell align="left">
-                                <button onClick={() => handleDelete(listing.id)}>Delete</button>
+                                <button onClick={() => handleDelete(business.id)}>Delete</button>
                             </TableCell>
                             )}
                         </TableRow>
@@ -65,4 +65,4 @@ const Listings = (props) => {
     )
 }
 
-export default Listings;
+export default Businesses;
