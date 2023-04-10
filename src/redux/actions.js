@@ -4,3 +4,10 @@ export const addBusiness = (newBusiness) => {
         value: newBusiness
     }
 }
+
+export const removeBusiness = (index) => {
+    return {
+        type: "REMOVE_BUSINESS",
+        value: index
+    }
+}

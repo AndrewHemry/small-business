@@ -23,7 +23,7 @@ const Login = () => {
 
     const login = (e) => {
         e.preventDefault();
-        document.cookie = cookie.serialize("loggedIn", true, { maxAge: 60})
+        document.cookie = cookie.serialize("loggedIn", true, { maxAge: 600})
 
         navigate("/")
     }

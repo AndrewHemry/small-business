@@ -4,7 +4,7 @@ import cookie from "cookie";
 import AddBusiness from "./containers/AddBusiness";
 import Login from "./components/Login"
 import Businesses from "./containers/Businesses";
-import Business from "./components/Details";
+import Details from "./containers/Details"
 
 const checkAuth = () => {
     const cookies = cookie.parse(document.cookie)
@@ -23,7 +23,7 @@ const Router = () => {
         <Routes>
             <Route path="/" element={<Businesses/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/business/:id" element={<Business/>} />
+            <Route path="/business/:id" element={<Details/>} />
             {/* Add Additional Routes */}
             <Route path="/add" element={<ProtectedRoute component={AddBusiness} />} />
         </Routes>

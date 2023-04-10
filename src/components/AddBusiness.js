@@ -1,21 +1,19 @@
 import React, { Component, } from "react";
 import { TextField, Button, Container } from "@mui/material";
-// import cookie from "cookie";
 
 class AddBusiness extends Component {
     state = {
-        name: "",
-        address: "",
-        open_time: "",
-        close_time: "",
-        description: ""
+        Name: "",
+        Address: "",
+        Open_Time: "",
+        Close_Time: "",
+        Description: ""
     }
 
     handleTextChange = (e) => {
         const newState = { ...this.state }
         newState[e.target.id] = e.target.value
         this.setState(newState)
-        console.log('The props is handleTextChange', this.props)
     }
 
     handleSubmit = (e) => {
@@ -23,21 +21,7 @@ class AddBusiness extends Component {
         const payload = { ...this.state }
         payload.id = this.props.businessTotal + 1
         delete payload.open
-        console.log("The Business Payload", payload)
         this.props.addBusiness(payload)        
-        console.log('The props is handleSubmit', this.props)
-    }
-
-    componentDidUpdate = (prevProps, prevState) => {
-        if (prevState.open !== this.state.open) {
-            this.setState({
-                name: "",
-                address: "",
-                open_time: "",
-                close_time: "",
-                description: ""
-            })
-        }
     }
 
     render() {
@@ -46,42 +30,42 @@ class AddBusiness extends Component {
                 <Container maxWidth="sm">
                     <form className="add-form" onSubmit={this.handleSubmit}>
                         <TextField
-                            id="name"
+                            id="Name"
                             onChange={this.handleTextChange}
-                            value={this.state.name}
-                            name="name"
+                            value={this.state.Name}
+                            name="Name"
                             label="Name"
                             variant="standard"
                         />
                         <TextField
-                            id="address"
+                            id="Address"
                             onChange={this.handleTextChange}
-                            value={this.state.address}
-                            name="address"
+                            value={this.state.Address}
+                            name="Address"
                             label="Address"
                             variant="standard"
                         />
                         <TextField
-                            id="open_time"
+                            id="Open_Time"
                             onChange={this.handleTextChange}
-                            value={this.state.open_time}
-                            name="open_time"
-                            label="Open Time"
+                            value={this.state.Open_Time}
+                            name="Open_Time"
+                            label="Open Time (ex. 8 AM)"
                             variant="standard"
                         />
                         <TextField
-                            id="close_time"
+                            id="Close_Time"
                             onChange={this.handleTextChange}
-                            value={this.state.close_time}
-                            name="close_time"
-                            label="Close Time"
+                            value={this.state.Close_Time}
+                            name="Close_Time"
+                            label="Close Time (ex. 5 PM)"
                             variant="standard"
                         />
                         <TextField
-                            id="description"
+                            id="Description"
                             onChange={this.handleTextChange}
-                            value={this.state.description}
-                            name="description"
+                            value={this.state.Description}
+                            name="Description"
                             label="Description"
                             variant="standard"
                         />
@@ -99,3 +83,4 @@ class AddBusiness extends Component {
 }
 
 export default AddBusiness;
+

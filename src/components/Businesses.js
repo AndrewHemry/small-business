@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 // import the listings from the redux state
-import businesses from "../listings.json"
+// import businesses from "../listings.json"
+import DeleteIcon from "@mui/icons-material/Delete"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,9 +18,9 @@ const Businesses = (props) => {
     const cookies = cookie.parse(document.cookie);
     const isLoggedIn = cookies.loggedIn === 'true';
 
-    const handleDelete = (id) => {
-        // TODO: Implement the logic to delete the listing with the given ID
-        console.log(`Deleting listing with ID ${id}`);
+    const handleDelete = (idx) => {
+        props.removeBusiness(idx)
+        console.log(`Deleting listing with ID ${idx}`);
       };
 
     return (
@@ -39,9 +40,9 @@ const Businesses = (props) => {
                     </TableRow>
                     </TableHead>
                     <TableBody>
-                    {businesses.map((business, idx) => (
+                    {props.businesses.map((business, idx) => (
                         <TableRow
-                        key={idx}
+                        key={business.id}
                         sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                         >
                             <TableCell component="th" scope="row">
@@ -53,7 +54,11 @@ const Businesses = (props) => {
                             <TableCell align="left">{business.Address}</TableCell>
                             {isLoggedIn && (
                             <TableCell align="left">
-                                <button onClick={() => handleDelete(business.id)}>Delete</button>
+                                <DeleteIcon
+                                    onClick={() => handleDelete(idx)}
+                                    className="icon text-red"
+                                />
+                                {/* <button onClick={() => handleDelete(business.id)}>Delete</button> */}
                             </TableCell>
                             )}
                         </TableRow>

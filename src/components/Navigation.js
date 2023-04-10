@@ -15,7 +15,6 @@ const Navigation = (props) => {
 
     function handleLogout() {
         document.cookie = cookie.serialize("loggedIn", false, { maxAge: 0 });
-        console.log("Logout was pressed, current value is:", isLoggedIn);
         navigate("/login");
     }
 
