@@ -16,6 +16,7 @@ const Navigation = (props) => {
     function handleLogout() {
         document.cookie = cookie.serialize("loggedIn", false, { maxAge: 0 });
         navigate("/login");
+        window.location.reload(false);
     }
 
     return (
@@ -34,10 +35,9 @@ const Navigation = (props) => {
                                 <Link className="nav-list-link" to="/add">Add</Link>
                             ): null }
                         </li>
-                        {/* ACTION ITEM - Iron out the logout and login features */}
                         <li className="nav-list-item">
                             {isLoggedIn ? (
-                                <button onClick={handleLogout}>Logout</button>
+                                <Link className="nav-list-link" to="/" onClick={handleLogout}>Logout</Link>
                             ) : (
                                 <Link className="nav-list-link" to="/login">Login</Link>
                             )}

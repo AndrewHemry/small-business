@@ -1,5 +1,6 @@
 import React, { Component, } from "react";
 import { TextField, Button, Container } from "@mui/material";
+import Map from "./GoogleMapEmbed";
 
 class AddBusiness extends Component {
     state = {
@@ -21,12 +22,12 @@ class AddBusiness extends Component {
         const payload = { ...this.state }
         payload.id = this.props.businessTotal + 1
         delete payload.open
-        this.props.addBusiness(payload)        
+        this.props.addBusiness(payload)     
     }
 
     render() {
         return (
-            <div className="App">
+            <div className="add-business">
                 <Container maxWidth="sm">
                     <form className="add-form" onSubmit={this.handleSubmit}>
                         <TextField
@@ -77,6 +78,7 @@ class AddBusiness extends Component {
                         > Save </Button>
                     </form>
                 </Container>
+                <Map />
             </div>
         )
     }

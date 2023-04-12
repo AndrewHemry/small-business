@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import the listings from the redux state
-// import businesses from "../listings.json"
 import DeleteIcon from "@mui/icons-material/Delete"
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,14 +11,12 @@ import Paper from '@mui/material/Paper';
 import cookie from "cookie";
 
 const Businesses = (props) => {
-    // Potentially add a console log here for the props to ensure they're being passed from redux
 
     const cookies = cookie.parse(document.cookie);
     const isLoggedIn = cookies.loggedIn === 'true';
 
     const handleDelete = (idx) => {
         props.removeBusiness(idx)
-        console.log(`Deleting listing with ID ${idx}`);
       };
 
     return (
@@ -58,7 +54,6 @@ const Businesses = (props) => {
                                     onClick={() => handleDelete(idx)}
                                     className="icon text-red"
                                 />
-                                {/* <button onClick={() => handleDelete(business.id)}>Delete</button> */}
                             </TableCell>
                             )}
                         </TableRow>

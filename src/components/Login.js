@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import { TextField, Button, Container } from "@mui/material";
 import cookie from "cookie";
 
-const Login = () => {
+const Login = (props) => {
     const navigate = useNavigate()
 
     const [state, setState] = useState({
@@ -23,9 +23,9 @@ const Login = () => {
 
     const login = (e) => {
         e.preventDefault();
-        document.cookie = cookie.serialize("loggedIn", true, { maxAge: 600})
-
-        navigate("/")
+        document.cookie = cookie.serialize("loggedIn", true, { maxAge: 600});
+        navigate("/");
+        window.location.reload(false);
     }
 
     return (
@@ -39,6 +39,7 @@ const Login = () => {
                         name="username"
                         label="Username"
                         type="text"
+                        variant="standard"
                     />
                     <TextField
                         required
@@ -47,10 +48,12 @@ const Login = () => {
                         name="password"
                         label="Password"
                         type="password"
+                        variant="standard"
                     />
                     <Button
-                        type="submit"
+                        style={{ marginTop: "15px", backgroundColor: 'lightgrey', color: 'black' }}
                         className="login-button"
+                        type="submit"
                         variant="contained"
                         color="primary"
                     >
